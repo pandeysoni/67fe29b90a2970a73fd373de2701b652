@@ -11,12 +11,20 @@
   },
   "dependencies": {
     "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.10.6",
+    "express-session": "^1.15.6",
     "mocha": "^4.0.1",
+    "passport": "^0.4.0",
+    "passport-twitter": "^1.0.4",
     "request": "^2.83.0"
   },
   "author": {
     "name": "sonipandey",
     "email": "sonipandey.71@gmail.com"
+  },
+  "devDependencies": {
+    "supertest": "^3.0.0"
   }
 }
