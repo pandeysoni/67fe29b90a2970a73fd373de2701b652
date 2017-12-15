@@ -1,0 +1,22 @@
+{
+  "name": "manage-social",
+  "description": "manage social twitter api",
+  "version": "0.1.0",
+  "main": "server",
+  "scripts": {
+    "test": "mocha"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.10.6",
+    "mocha": "^4.0.1",
+    "request": "^2.83.0"
+  },
+  "author": {
+    "name": "sonipandey",
+    "email": "sonipandey.71@gmail.com"
+  }
+}
