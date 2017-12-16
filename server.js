@@ -4,7 +4,6 @@ const app = express();
 const bodyParser = require('body-parser')
 const expressSession = require('express-session')
 const cookieParser = require('cookie-parser')
-const passport = require('passport')
 const cors = require('cors')
 /** use bodyparser, cookieparser and expresssession as a middleware*/
 
@@ -22,12 +21,9 @@ var corsOption = {
 app.use(cors(corsOption));
 /** Load DB settings, config file and route file*/
 const config = require('./server/config/config')
-require('./server/config/passport')(config,passport);
-app.use(passport.initialize());
-app.use(passport.session());
 /** load routes*/
 
-require('./server/routes')(app, passport)
+require('./server/routes')(app)
 
 const port = config.server.port
 

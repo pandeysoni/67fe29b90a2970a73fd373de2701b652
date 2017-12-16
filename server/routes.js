@@ -3,7 +3,7 @@ const controller = require('./twitter-service/twitter-service-controller')
 const request = require('request')
 const config = require('./config/config')
 /** router endpoints defined */
-module.exports = (app, passport) => {
+module.exports = (app) => {
 	/** Get access_token */
 	app.post('/oauth_request', controller.oauthFunc)
 	
@@ -17,11 +17,6 @@ module.exports = (app, passport) => {
 	/** disconnect twitter */
 	app.post('/disconnect', controller.disconnectFunc)
 
-
-	app.get('/auth/twitter/reverse',
-		passport.authenticate('twitter'), (req, res) => {
-				res.redirect('/');
-	});
 	app.post('/verify_request', controller.verifyFunc)
     
 	app.get('/', (req, res) => {
