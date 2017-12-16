@@ -1,15 +1,13 @@
 /** router functionality writtern in controller */
 const controller = require('./twitter-service/twitter-service-controller')
-
+const request = require('request')
+const config = require('./config/config')
 /** router endpoints defined */
 module.exports = (app, passport) => {
 	/** Get access_token */
-	app.get('/oauth_request', controller.oauthFunc)
-	app.get('/auth/twitter',
-		passport.authenticate('twitter'), (req, res) => {
-				res.redirect('/');
-		});
-
+	app.post('/oauth_request', controller.oauthFunc)
+	
+	// app.use('/api/v1', router);
 	/** Get user profile */
 	app.post('/connect', controller.connectFunc)
 
@@ -20,6 +18,12 @@ module.exports = (app, passport) => {
 	app.post('/disconnect', controller.disconnectFunc)
 
 
+	app.get('/auth/twitter/reverse',
+		passport.authenticate('twitter'), (req, res) => {
+				res.redirect('/');
+	});
+	app.post('/verify_request', controller.verifyFunc)
+    
 	app.get('/', (req, res) => {
 		return res.send('welcome to twitter');
 	});
